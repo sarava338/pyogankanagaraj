@@ -3,8 +3,8 @@ import React from "react";
 const Post = () => {
   return (
     <section className="post">
-      <img src="image" alt="image" />
-      <div>
+      <img src="image" alt="image" className="post-image" />
+      <div className="post-content">
         <h2>post title</h2>
         <p>
           post content Lorem ipsum dolor sit amet consectetur adipisicing elit.
