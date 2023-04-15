@@ -3,9 +3,9 @@ import Post from "../components/post/Post";
 
 const Kathai = () => {
   return (
-    <article>
+    <article className="kathai">
       <h1>Kathai</h1>
-      <section>
+      <section className="kathai-posts">
         <Post />
         <Post />
         <Post />

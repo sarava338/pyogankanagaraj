@@ -3,11 +3,13 @@ import Post from "../components/post/Post";
 
 const Katturai = () => {
   return (
-    <article>
+    <article className="katturai">
       <h1>Katturai</h1>
-      <Post />
-      <Post />
-      <Post />
+      <section className="katturai-posts">
+        <Post />
+        <Post />
+        <Post />
+      </section>
     </article>
   );
 };

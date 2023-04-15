@@ -3,12 +3,14 @@ import Post from "../components/post/Post";
 
 const Kavithai = () => {
   return (
-    <article>
+    <article className="kavithai">
       <h1>Kavithai</h1>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <section className="kavithai-posts">
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+      </section>
     </article>
   );
 };
