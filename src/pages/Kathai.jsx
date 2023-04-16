@@ -1,14 +1,12 @@
-import React from "react";
-import Post from "../components/post/Post";
+import React, { useEffect, useState } from "react";
+import AllPosts from "../components/post/AllPosts";
 
 const Kathai = () => {
   return (
-    <article>
+    <article className="kathai">
       <h1>Kathai</h1>
-      <section>
-        <Post />
-        <Post />
-        <Post />
+      <section className="kathai-posts">
+        <AllPosts col="kathai" />
       </section>
     </article>
   );
