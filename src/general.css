@@ -18,7 +18,23 @@ ul {
   padding: 0 6rem;
 }
 
-h1, footer{
+.home{
+  display: flex;
+  height: 80vh;
+}
+
+.home>section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-content {
+  flex-direction: column;
+  width: 40%;
+}
+
+h1, footer, .home p{
   text-align: center;
 }
 
