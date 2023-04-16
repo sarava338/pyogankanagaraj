@@ -1,0 +1,19 @@
+.home{
+  display: flex;
+  height: 80vh;
+}
+
+.home>section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-content {
+  flex-direction: column;
+  width: 40%;
+}
+
+.home p{
+  text-align: center;
+}
