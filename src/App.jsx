@@ -7,20 +7,23 @@ import Kathai from "./pages/Kathai";
 import Kavithai from "./pages/Kavithai";
 import Katturai from "./pages/Katturai";
 import Footer from "./components/footer/Footer";
+import { ThemeProvider } from "./context";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="kathai" element={<Kathai />} />
-          <Route path="kavithai" element={<Kavithai />} />
-          <Route path="katturai" element={<Katturai />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="kathai" element={<Kathai />} />
+            <Route path="kavithai" element={<Kavithai />} />
+            <Route path="katturai" element={<Katturai />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 }

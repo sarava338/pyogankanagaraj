@@ -13,3 +13,12 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+#theme-button {
+  background-color: #121212;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid green;
+  border-radius: 50%;
+}
