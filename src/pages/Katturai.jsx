@@ -1,14 +1,12 @@
 import React from "react";
-import Post from "../components/post/Post";
+import AllPosts from "../components/post/AllPosts";
 
 const Katturai = () => {
   return (
     <article className="katturai">
       <h1>Katturai</h1>
       <section className="katturai-posts">
-        <Post />
-        <Post />
-        <Post />
+        <AllPosts col='katturai'/>
       </section>
     </article>
   );
