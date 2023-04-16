@@ -11,7 +11,6 @@ const AllPosts = ({ col }) => {
 
   useEffect(() => {
     getPosts(collectionRef).then((data) => {
-      console.log(data);
       setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
   }, []);
