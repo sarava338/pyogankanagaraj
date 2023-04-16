@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Kathai from "./pages/Kathai";
 import Kavithai from "./pages/Kavithai";
 import Katturai from "./pages/Katturai";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="kavithai" element={<Kavithai />} />
           <Route path="katturai" element={<Katturai />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
