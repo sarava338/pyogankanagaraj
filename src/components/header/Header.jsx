@@ -6,7 +6,9 @@ const Header = () => {
   return (
     <header>
       <NavBar />
+      <hr />
       <SectionBar />
+      <hr />
     </header>
   );
 };
