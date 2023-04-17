@@ -1,13 +1,13 @@
 import React from "react";
 import AllPosts from "../components/post/AllPosts";
-import CreatePost from "../components/post/CreatePost";
+import AddPost from "../components/post/AddPost";
 
 const Katturai = () => {
   return (
     <article className="katturai">
       <h1>Katturai</h1>
       <section className="katturai-posts">
-        <CreatePost col="katturaigal" />
+        <AddPost col="katturaigal" />
         <AllPosts col="katturaigal" />
       </section>
     </article>

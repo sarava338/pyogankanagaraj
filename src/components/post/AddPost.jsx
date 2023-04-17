@@ -4,7 +4,7 @@ import { collection } from "firebase/firestore";
 import { db } from "../../firebase/fireebase";
 import { createPost } from "../../firebase/db";
 
-const CreatePost = ({ col }) => {
+const AddPost = ({ col }) => {
   const [newTitle, setNewTitle] = useState("");
   const [newContent, setNewContent] = useState("");
 
@@ -46,4 +46,4 @@ const CreatePost = ({ col }) => {
   );
 };
 
-export default CreatePost;
+export default AddPost;
