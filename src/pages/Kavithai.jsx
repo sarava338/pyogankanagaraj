@@ -6,7 +6,7 @@ const Kavithai = () => {
     <article className="kavithai">
       <h1>Kavithai</h1>
       <section className="kavithai-posts">
-        <AllPosts col='kavithai' />
+        <AllPosts col='kavithaigal' />
       </section>
     </article>
   );
