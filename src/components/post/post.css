@@ -33,3 +33,12 @@ button.create-post-button {
   background-color: green;
   border: 1px solod white;
 }
+
+.error{
+  text-align: center;
+  height: 20px;
+  background-color: rgb(182, 83, 83);
+  border: 1px solid red;
+  border-radius: 20px;
+
+}
