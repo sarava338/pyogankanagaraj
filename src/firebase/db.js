@@ -5,5 +5,5 @@ export const getPosts = async (collectionRef) => {
 };
 
 export const createPost = async (collectionRef, newPost) => {
-  await addDoc(collectionRef, newPost);
+    return await addDoc(collectionRef, newPost);
 };

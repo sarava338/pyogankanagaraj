@@ -34,11 +34,23 @@ button.create-post-button {
   border: 1px solod white;
 }
 
-.error{
+.status {
+  height: 40px;
+}
+
+.success, .error{
   text-align: center;
   height: 20px;
+  border-radius: 20px;
+  box-sizing: content-box;
+}
+
+.success{
+  background-color: rgb(84, 148, 84);
+  border: 1px solid green;
+}
+
+.error{
   background-color: rgb(182, 83, 83);
   border: 1px solid red;
-  border-radius: 20px;
-
 }

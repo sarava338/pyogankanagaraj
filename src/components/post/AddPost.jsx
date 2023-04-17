@@ -8,14 +8,33 @@ const AddPost = ({ col }) => {
   const [newTitle, setNewTitle] = useState("");
   const [newContent, setNewContent] = useState("");
   const [show, setShow] = useState(false);
+  const [addPostStatus, setAddPostStatus] = useState("hide");
 
   const collectionRef = collection(db, col);
+
+  const showPostStatus = (postID) => {
+    if (postID) {
+      setAddPostStatus("success");
+      setTimeout(() => {
+        setAddPostStatus("hide");
+      }, 3000);
+    } else {
+      setAddPostStatus("error");
+      setTimeout(() => {
+        setAddPostStatus("hide");
+      }, 3000);
+    }
+  };
 
   const addPost = (e) => {
     e.preventDefault();
     if (newTitle && newContent) {
       setShow(false);
-      createPost(collectionRef, { title: newTitle, content: newContent });
+      createPost(collectionRef, { title: newTitle, content: newContent }).then(
+        (res) => {
+          showPostStatus(res.id);
+        }
+      );
       document.getElementById("create-post-title").value = "";
       document.getElementById("create-post-content").value = "";
     } else setShow(true);
@@ -50,7 +69,15 @@ const AddPost = ({ col }) => {
         placeholder="type your content here"
       ></textarea>
 
-      {show && <p className="error">Kindly type something and post</p>}
+      <div className="status">
+        {show && <p className="error">Kindly type something and post</p>}
+        {addPostStatus === "success" && (
+          <p className="success">post was created successfully</p>
+        )}
+        {addPostStatus === "error" && (
+          <p className="error">post was not created</p>
+        )}
+      </div>
 
       <button
         onClick={(e) => {
