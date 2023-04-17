@@ -11,13 +11,15 @@ const AllPosts = ({ col }) => {
 
   useEffect(() => {
     getPosts(collectionRef).then((data) => {
-      setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
   }, []);
 
   return (
     posts &&
-    posts.map((post) => <Post title={post.title} content={post.content} />)
+    posts.map((post) => (
+      <Post title={post.title} content={post.content} key={post.id} />
+    ))
   );
 };
 
