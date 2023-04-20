@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./post.css";
-import { deletePost, updatePost } from "../../firebase/db";
+import { remove, update } from "../../firebase/db";
 
 const Post = ({ post }) => {
   const { id, title, content, collection } = post;
@@ -16,7 +16,7 @@ const Post = ({ post }) => {
       content: editedContent,
     };
     if (editable) {
-      updatePost(id, newPost)
+      update(id, newPost)
         .then((res) => setEditable(false))
         .catch((err) => alert(`Post not editable\nError:${err}`));
     } else setEditable(true);
@@ -26,7 +26,7 @@ const Post = ({ post }) => {
     let deleteTimeoutID;
     if (deletable) {
       deleteTimeoutID = setTimeout(() => {
-        deletePost(id, collection)
+        remove(id, collection)
           .then((res) => alert("post deleted successfully", res))
           .catch((err) => alert(`Post not deletable\nError : ${err}`));
       }, 5000);
@@ -59,7 +59,9 @@ const Post = ({ post }) => {
         )}
       </div>
       <button onClick={editPost}>edit</button>
-      <button onClick={removePost}>{deletable ? "delete" : "cancel deleting"}</button>
+      <button onClick={removePost}>
+        {deletable ? "delete" : "cancel deleting"}
+      </button>
     </section>
   );
 };

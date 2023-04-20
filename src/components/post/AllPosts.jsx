@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Post from "./Post";
 import { collection } from "firebase/firestore";
-import { getPosts } from "../../firebase/db";
+import { get } from "../../firebase/db";
 import { db } from "../../firebase/fireebase";
 
 const AllPosts = ({ col }) => {
@@ -10,7 +10,7 @@ const AllPosts = ({ col }) => {
   const collectionRef = collection(db, col);
 
   useEffect(() => {
-    getPosts(collectionRef).then((data) => {
+    get(collectionRef).then((data) => {
       setPosts(
         data.docs.map((doc) => ({
           ...doc.data(),
@@ -21,10 +21,7 @@ const AllPosts = ({ col }) => {
     });
   }, []);
 
-  return (
-    posts && posts?.map((post) => <Post key={post.id} post={post} />)
-  );
-
+  return posts && posts?.map((post) => <Post key={post.id} post={post} />);
 };
 
 export default AllPosts;

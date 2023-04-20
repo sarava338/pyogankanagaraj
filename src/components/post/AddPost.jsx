@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./post.css";
 import { collection } from "firebase/firestore";
 import { db } from "../../firebase/fireebase";
-import { createPost } from "../../firebase/db";
+import { add } from "../../firebase/db";
 
 const AddPost = ({ col }) => {
   const [newTitle, setNewTitle] = useState("");
@@ -30,11 +30,13 @@ const AddPost = ({ col }) => {
     e.preventDefault();
     if (newTitle && newContent) {
       setShow(false);
-      createPost(collectionRef, { title: newTitle, content: newContent, collection: col }).then(
-        (res) => {
-          showPostStatus(res.id);
-        }
-      );
+      add(collectionRef, {
+        title: newTitle,
+        content: newContent,
+        collection: col,
+      }).then((res) => {
+        showPostStatus(res.id);
+      });
       document.getElementById("create-post-title").value = "";
       document.getElementById("create-post-content").value = "";
     } else setShow(true);
