@@ -7,7 +7,7 @@ import Kathai from "./pages/Kathai";
 import Kavithai from "./pages/Kavithai";
 import Katturai from "./pages/Katturai";
 import Footer from "./components/footer/Footer";
-import { ThemeProvider } from "./context";
+import ThemeProvider from "./contexts/ThemeContext";
 
 function App() {
   return (

@@ -1,14 +1,11 @@
 import React, { createContext, useState } from "react";
 
-const dark_mode = "./assets/dark_mode.png";
+export const themeContext = createContext();
 
-const themeContext = createContext();
-
-const ThemeProvider = ({ children }) => {
+export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(true);
-  
-  const elements = "body, p, a, button, input, textarea";
 
+  const elements = "body, p, a, button, input, textarea";
 
   if (theme) {
     document.querySelectorAll(elements).forEach((e) => {
@@ -27,7 +24,4 @@ const ThemeProvider = ({ children }) => {
       {children}
     </themeContext.Provider>
   );
-};
-
-export { themeContext };
-export { ThemeProvider };
+}
