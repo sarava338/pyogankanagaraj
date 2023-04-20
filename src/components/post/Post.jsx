@@ -1,7 +1,9 @@
 import React from "react";
 import "./post.css";
 
-const Post = (title, content) => {
+const Post = ({ post }) => {
+  const { id, title, content } = post;
+
   return (
     <section className="post">
       <img src="image" alt="image" className="post-image" />
