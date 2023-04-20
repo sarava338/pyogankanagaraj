@@ -30,7 +30,7 @@ const AddPost = ({ col }) => {
     e.preventDefault();
     if (newTitle && newContent) {
       setShow(false);
-      createPost(collectionRef, { title: newTitle, content: newContent }).then(
+      createPost(collectionRef, { title: newTitle, content: newContent, collection: col }).then(
         (res) => {
           showPostStatus(res.id);
         }
