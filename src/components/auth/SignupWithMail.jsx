@@ -20,6 +20,10 @@ const SignupWithMail = () => {
           <label htmlFor="signup-password">Password : </label>
           <input type="password" name="password" id="signup-password" />
         </div>
+        <div>
+          <label htmlFor="signup-confirm-password">Confirm Password : </label>
+          <input type="password" name="password" id="signup-confirm-password" />
+        </div>
         <button type="submit">Signup</button>
       </form>
     </section>
