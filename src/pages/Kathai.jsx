@@ -7,8 +7,8 @@ const Kathai = () => {
     <article className="kathai">
       <h1>Kathai</h1>
       <section className="kathai-posts">
-        <AddPost col="kathaigal" />
-        <AllPosts col="kathaigal" />
+        <AddPost col="kathai" />
+        <AllPosts col="kathai" />
       </section>
     </article>
   );

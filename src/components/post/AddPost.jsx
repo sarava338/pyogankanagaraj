@@ -44,9 +44,7 @@ const AddPost = ({ col }) => {
 
   return (
     <form className="create-post">
-      <label htmlFor="create-post-title">
-        {col.substring(0, col.length - 3)} title:{" "}
-      </label>
+      <label htmlFor="create-post-title">{col} title: </label>
       <input
         onChange={(e) => {
           setNewTitle(e.target.value);
@@ -57,9 +55,7 @@ const AddPost = ({ col }) => {
         className="post-title-input"
         placeholder="enter your title here"
       />
-      <label htmlFor="create-post-content">
-        {col.substring(0, col.length - 3)} content:{" "}
-      </label>
+      <label htmlFor="create-post-content">{col} content: </label>
       <textarea
         onChange={(e) => {
           setNewContent(e.target.value);
