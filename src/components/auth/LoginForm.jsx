@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../firebase/auth";
 import Status from "../elements/Status";
+import EmailInput from "../elements/EmailInput";
+import PasswordInput from "../elements/PasswordInput";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -24,36 +26,13 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="login-form">
-      <div>
-        <label htmlFor="email">Email : </label>
-        <input
-          type="email"
-          name="email"
-          id="login-email"
-          placeholder="Enter email"
-          autoComplete="off"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password : </label>
-        <input
-          type="password"
-          name="password"
-          id="login-password"
-          placeholder="Enter password"
-          autoComplete="off"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-          required
-        />
-      </div>
+      <EmailInput email={email} setEmail={setEmail} />
+      <PasswordInput
+        password={password}
+        setPassword={setPassword}
+        placeholder="Enter password"
+        label="Password :"
+      />
       {error && <Status status={error} error />}
       <button type="submit">Login</button>
     </form>

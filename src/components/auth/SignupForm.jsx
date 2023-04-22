@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./auth.css";
 import Status from "../elements/Status";
 import { signup } from "../../firebase/auth";
+import EmailInput from "../elements/EmailInput";
+import PasswordInput from "../elements/PasswordInput";
 
 const SignupForm = () => {
   const [email, setEmail] = useState("");
@@ -33,48 +35,19 @@ const SignupForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      <div>
-        <label htmlFor="email">Email : </label>
-        <input
-          type="email"
-          name="email"
-          id="signup-email"
-          value={email}
-          placeholder="Enter email"
-          required
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password : </label>
-        <input
-          type="password"
-          name="password"
-          id="signup-password"
-          value={password}
-          placeholder="Enter password"
-          required
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-      </div>
-      <div>
-        <label htmlFor="confirm-password">Confirm Password : </label>
-        <input
-          type="password"
-          name="password"
-          id="signup-confirm-password"
-          value={confirmPassword}
-          placeholder="Confirm password"
-          required
-          onChange={(e) => {
-            setConfirmPassword(e.target.value);
-          }}
-        />
-      </div>
+      <EmailInput email={email} setEmail={setEmail} />
+      <PasswordInput
+        password={password}
+        setPassword={setPassword}
+        placeholder="Enter password"
+        label="Password :"
+      />
+      <PasswordInput
+        password={confirmPassword}
+        setPassword={setConfirmPassword}
+        placeholder="Confirm password"
+        label="Confirm Password :"
+      />
       {error && <Status status={error} error />}
       {success && <Status status={success} />}
       <button type="submit">signup</button>
