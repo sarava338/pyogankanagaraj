@@ -1,7 +1,14 @@
+h1,footer{
+  text-align: center;
+}
+
 .kathai, .kavithai, .katturai {
   padding: 0 6rem;
 }
 
-h1, footer{
-  text-align: center;
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
