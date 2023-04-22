@@ -3,78 +3,57 @@ import "./post.css";
 import { collection } from "firebase/firestore";
 import { db } from "../../firebase/fireebase";
 import { add } from "../../firebase/db";
+import PostTitleInput from "../elements/PostTitleInput";
+import PostContentInput from "../elements/PostContentInput";
+import Status from "../elements/Status";
 
 const AddPost = ({ col }) => {
   const [newTitle, setNewTitle] = useState("");
   const [newContent, setNewContent] = useState("");
-  const [show, setShow] = useState(false);
-  const [addPostStatus, setAddPostStatus] = useState("hide");
+  const [status, setStatus] = useState({});
 
   const collectionRef = collection(db, col);
-
-  const showPostStatus = (postID) => {
-    if (postID) {
-      setAddPostStatus("success");
-      setTimeout(() => {
-        setAddPostStatus("hide");
-      }, 3000);
-    } else {
-      setAddPostStatus("error");
-      setTimeout(() => {
-        setAddPostStatus("hide");
-      }, 3000);
-    }
-  };
+  const newPost = { title: newTitle, content: newContent, collection: col };
 
   const addPost = (e) => {
     e.preventDefault();
+    setStatus("");
     if (newTitle && newContent) {
-      setShow(false);
-      add(collectionRef, {
-        title: newTitle,
-        content: newContent,
-        collection: col,
-      }).then((res) => {
-        showPostStatus(res.id);
-      });
-      document.getElementById("create-post-title").value = "";
-      document.getElementById("create-post-content").value = "";
-    } else setShow(true);
+      add(collectionRef, newPost)
+        .then((res) => {
+          setStatus({
+            messege: "post created successfully",
+            code: true,
+          });
+          setTimeout(() => setStatus({}), 3000);
+        })
+        .catch((err) => {
+          setStatus({
+            messege: "post not created. Kindly check the error in console",
+            code: false,
+          });
+          console.log(err);
+        });
+      setNewTitle("");
+      setNewContent("");
+    } else
+      setStatus({ messege: "Kindly type something and post", code: false });
   };
 
   return (
     <form className="create-post">
-      <label htmlFor="create-post-title">{col} title: </label>
-      <input
-        onChange={(e) => {
-          setNewTitle(e.target.value);
-        }}
-        type="text"
-        name="create-post-title"
-        id="create-post-title"
-        className="post-title-input"
-        placeholder="enter your title here"
+      <PostTitleInput
+        postTitle={newTitle}
+        setPostTitle={setNewTitle}
+        col={col}
       />
-      <label htmlFor="create-post-content">{col} content: </label>
-      <textarea
-        onChange={(e) => {
-          setNewContent(e.target.value);
-        }}
-        name="create-post-content"
-        id="create-post-content"
-        className="post-content-input"
-        rows="5"
-        placeholder="type your content here"
-      ></textarea>
-
+      <PostContentInput
+        postContent={newContent}
+        setPostContent={setNewContent}
+        col={col}
+      />
       <div className="status">
-        {show && <p className="error">Kindly type something and post</p>}
-        {addPostStatus === "success" && (
-          <p className="success">post was created successfully</p>
-        )}
-        {addPostStatus === "error" && (
-          <p className="error">post was not created</p>
-        )}
+        {status && <Status status={status}></Status>}
       </div>
 
       <button
