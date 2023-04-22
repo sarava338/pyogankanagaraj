@@ -9,25 +9,29 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [status, setStatus] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
+    setStatus({});
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setStatus({ messege: "Passwords do not match", code: false });
     } else {
       signup(email, password)
         .then((res) => {
           setEmail("");
           setPassword("");
           setConfirmPassword("");
-          setSuccess("User was created. You can login now...");
+          setStatus({
+            messege: "User was created. You can login now...",
+            code: true,
+          });
         })
         .catch((err) => {
-          setError("User not created. Kindly check the error in console");
+          setStatus({
+            messege: "User not created. Kindly check the error in console",
+            code: false,
+          });
           console.log(err);
         });
     }
@@ -48,8 +52,7 @@ const SignupForm = () => {
         placeholder="Confirm password"
         label="Confirm Password :"
       />
-      {error && <Status status={error} error />}
-      {success && <Status status={success} />}
+      {status && <Status status={status} />}
       <button type="submit">signup</button>
     </form>
   );

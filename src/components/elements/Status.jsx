@@ -1,14 +1,15 @@
 import React from "react";
 
-const Status = ({ status, error }) => {
+const Status = ({ status }) => {
+  const { messege, code } = status;
   return (
     <b
       style={{
-        color: error ? "red" : "green",
+        color: code ? "green" : "red",
         fontSize: "1.2rem",
       }}
     >
-      {status}
+      {messege}
     </b>
   );
 };

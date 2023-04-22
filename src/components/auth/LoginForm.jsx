@@ -8,18 +8,21 @@ import PasswordInput from "../elements/PasswordInput";
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [status, setStatus] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
+    setStatus({});
     login(email, password)
       .then((res) => {
         navigate(-1);
       })
       .catch((err) => {
-        setError("Could not login. Kindly check the error in console");
+        setStatus({
+          messege: "Could not login. Kindly check the error in console",
+          code: false,
+        });
         console.log(err);
       });
   };
@@ -33,7 +36,7 @@ const LoginForm = () => {
         placeholder="Enter password"
         label="Password :"
       />
-      {error && <Status status={error} error />}
+      {status && <Status status={status} />}
       <button type="submit">Login</button>
     </form>
   );
