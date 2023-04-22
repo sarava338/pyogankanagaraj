@@ -1,14 +1,3 @@
 h1,footer{
   text-align: center;
 }
-
-.kathai, .kavithai, .katturai {
-  padding: 0 6rem;
-}
-
-.signup-page, .login-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}

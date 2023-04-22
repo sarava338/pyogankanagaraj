@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AllPosts from "../components/post/AllPosts";
 import AddPost from "../components/post/AddPost";
+import "./page.css";
 
 const Kathai = () => {
   return (

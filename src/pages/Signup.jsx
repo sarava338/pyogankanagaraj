@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SignupForm from "../components/auth/SignupForm";
+import "./page.css";
 
 const Signup = () => {
   return (

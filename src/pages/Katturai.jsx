@@ -1,6 +1,7 @@
 import React from "react";
 import AllPosts from "../components/post/AllPosts";
 import AddPost from "../components/post/AddPost";
+import "./page.css";
 
 const Katturai = () => {
   return (
