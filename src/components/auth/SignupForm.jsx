@@ -3,6 +3,8 @@ import Status from "../elements/Status";
 import { signup } from "../../firebase/auth";
 import EmailInput from "../elements/EmailInput";
 import PasswordInput from "../elements/PasswordInput";
+import Button from "../elements/Button";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +14,6 @@ const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus({});
     if (password !== confirmPassword) {
       setStatus({ messege: "Passwords do not match", code: false });
     } else {
@@ -37,7 +38,10 @@ const SignupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="d-flex flex-column align-items-center"
+    >
       <EmailInput email={email} setEmail={setEmail} />
       <PasswordInput
         password={password}
@@ -51,8 +55,11 @@ const SignupForm = () => {
         placeholder="Confirm password"
         label="Confirm Password :"
       />
-      {status && <Status status={status} />}
-      <button type="submit">signup</button>
+      <Status status={status} />
+      <Button type="submit" value="signup" className='btn btn-primary'/>
+      <p>
+        Already an user <Link to="/login">login</Link> here
+      </p>
     </form>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 const EmailInput = ({ email, setEmail }) => {
   return (
-    <div>
+    <div className="my-2">
       <label htmlFor="email">Email : </label>
       <input
         type="email"

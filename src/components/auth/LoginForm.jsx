@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../firebase/auth";
 import Status from "../elements/Status";
 import EmailInput from "../elements/EmailInput";
 import PasswordInput from "../elements/PasswordInput";
+import Button from "../elements/Button";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus({});
     login(email, password)
       .then((res) => {
-        navigate(-1);
+        navigate('/');
       })
       .catch((err) => {
         setStatus({
@@ -28,7 +28,10 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="d-flex flex-column align-items-center"
+    >
       <EmailInput email={email} setEmail={setEmail} />
       <PasswordInput
         password={password}
@@ -36,8 +39,11 @@ const LoginForm = () => {
         placeholder="Enter password"
         label="Password :"
       />
-      {status && <Status status={status} />}
-      <button type="submit">Login</button>
+      <Status status={status} />
+      <Button type="submit" value="login" className='btn btn-primary' />
+      <p>
+        Need an account <Link to="/signup">signup</Link> here
+      </p>
     </form>
   );
 };

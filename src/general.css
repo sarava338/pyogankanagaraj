@@ -1,3 +1,11 @@
 hr{
   margin: 0;
 }
+
+input, textarea {
+  display: block;
+}
+
+b.status {
+  height: 2rem;
+}
