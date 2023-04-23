@@ -6,7 +6,7 @@ const SectionBar = () => {
   const list = ["kathai", "kavithai", "katturai"];
 
   return (
-    <nav className="navbar justify-content-center">
+    <nav className="navbar justify-content-center py-0">
       <Ul list={list} />
       <Outlet />
     </nav>
