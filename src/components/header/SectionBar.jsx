@@ -1,20 +1,13 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Ul from "../elements/Ul";
 
 const SectionBar = () => {
+  const list = ["kathai", "kavithai", "katturai"];
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/kathai">Kathai</Link>
-        </li>
-        <li>
-          <Link to="/kavithai">Kavithai</Link>
-        </li>
-        <li>
-          <Link to="/katturai">Katturai</Link>
-        </li>
-      </ul>
+    <nav className="navbar justify-content-center">
+      <Ul list={list} />
       <Outlet />
     </nav>
   );
