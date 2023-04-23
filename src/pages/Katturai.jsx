@@ -5,7 +5,7 @@ import AddPost from "../components/post/AddPost";
 const Katturai = () => {
   return (
     <article>
-      <h1>Katturai</h1>
+      <h1 className="text-center mt-2">Katturai</h1>
       <section>
         <AddPost col="katturai" />
         <AllPosts col="katturai" />

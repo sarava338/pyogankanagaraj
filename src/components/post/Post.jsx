@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { remove, update } from "../../firebase/db";
+import Button from "../elements/Button";
 
 const Post = ({ post }) => {
   const { id, title, content, collection } = post;
@@ -37,11 +38,10 @@ const Post = ({ post }) => {
   };
 
   return (
-    <section>
-      <img src="image" alt="image" />
+    <section className="fluid-container border p-2 my-2 d-flex flex-column flex-sm-row justify-content-between">
       <div>
         {!editable ? (
-          <h2>{title}</h2>
+          <h3>{title}</h3>
         ) : (
           <input
             value={editedTitle}
@@ -57,10 +57,19 @@ const Post = ({ post }) => {
           ></textarea>
         )}
       </div>
-      <button onClick={editPost}>edit</button>
-      <button onClick={removePost}>
-        {deletable ? "delete" : "cancel deleting"}
-      </button>
+      <div>
+        <Button
+          className="btn btn-primary"
+          type="submit"
+          value="edit"
+          onClick={editPost}
+        />
+        <Button
+          onClick={removePost}
+          className={`btn ${deletable ? "btn-danger" : "btn-success"}`}
+          value={deletable ? "delete" : "cancel deleting"}
+        />
+      </div>
     </section>
   );
 };

@@ -21,7 +21,11 @@ const AllPosts = ({ col }) => {
     });
   }, []);
 
-  return posts && posts?.map((post) => <Post key={post.id} post={post} />);
+  return (
+    <section className="container">
+      {posts && posts?.map((post) => <Post key={post.id} post={post} />)}
+    </section>
+  );
 };
 
 export default AllPosts;
