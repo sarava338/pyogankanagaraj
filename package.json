@@ -11,6 +11,7 @@
     "prod:deploy": "env-cmd -f .env.production.local npm run build && firebase deploy -P pyogan-kanagaraj"
   },
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "firebase": "^9.19.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
