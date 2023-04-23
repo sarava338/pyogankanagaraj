@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./post.css";
 import { collection } from "firebase/firestore";
 import { db } from "../../firebase/fireebase";
 import { add } from "../../firebase/db";
@@ -41,7 +40,7 @@ const AddPost = ({ col }) => {
   };
 
   return (
-    <form className="create-post">
+    <form>
       <PostTitleInput
         postTitle={newTitle}
         setPostTitle={setNewTitle}
@@ -52,7 +51,7 @@ const AddPost = ({ col }) => {
         setPostContent={setNewContent}
         col={col}
       />
-      <div className="status">
+      <div>
         {status && <Status status={status}></Status>}
       </div>
 
@@ -60,7 +59,6 @@ const AddPost = ({ col }) => {
         onClick={(e) => {
           addPost(e);
         }}
-        className="create-post-button"
       >
         Post
       </button>

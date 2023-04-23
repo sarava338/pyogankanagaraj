@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./post.css";
 import { remove, update } from "../../firebase/db";
 
 const Post = ({ post }) => {
@@ -38,9 +37,9 @@ const Post = ({ post }) => {
   };
 
   return (
-    <section className="post">
-      <img src="image" alt="image" className="post-image" />
-      <div className="post-content">
+    <section>
+      <img src="image" alt="image" />
+      <div>
         {!editable ? (
           <h2>{title}</h2>
         ) : (

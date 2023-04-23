@@ -28,7 +28,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
+    <form onSubmit={handleSubmit}>
       <EmailInput email={email} setEmail={setEmail} />
       <PasswordInput
         password={password}

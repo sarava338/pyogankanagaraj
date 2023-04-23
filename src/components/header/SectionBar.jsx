@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const SectionBar = () => {
   return (
-    <nav className="section-bar">
+    <nav>
       <ul>
         <li>
           <Link to="/kathai">Kathai</Link>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./auth.css";
 import Status from "../elements/Status";
 import { signup } from "../../firebase/auth";
 import EmailInput from "../elements/EmailInput";
@@ -38,7 +37,7 @@ const SignupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="signup-form">
+    <form onSubmit={handleSubmit}>
       <EmailInput email={email} setEmail={setEmail} />
       <PasswordInput
         password={password}

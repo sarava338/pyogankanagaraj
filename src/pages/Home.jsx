@@ -1,10 +1,9 @@
 import React from "react";
-import "./page.css";
 
 const Home = () => {
   return (
-    <article className="home">
-      <section className="home-content">
+    <article>
+      <section>
         <h1>Yogan Kanagaraj</h1>
         <p>
           Hi, I am a writer. Who is writing for what I believe. Lorem ipsum

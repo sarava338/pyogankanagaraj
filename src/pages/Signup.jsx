@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SignupForm from "../components/auth/SignupForm";
-import "./page.css";
 
 const Signup = () => {
   return (
-    <article className="signup-page">
+    <article>
       <h2>Sign up</h2>
       <SignupForm />
       <p>
