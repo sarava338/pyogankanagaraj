@@ -5,6 +5,7 @@ import { add } from "../../firebase/db";
 import PostTitleInput from "../elements/PostTitleInput";
 import PostContentInput from "../elements/PostContentInput";
 import Status from "../elements/Status";
+import Button from "../elements/Button";
 
 const AddPost = ({ col }) => {
   const [newTitle, setNewTitle] = useState("");
@@ -16,7 +17,6 @@ const AddPost = ({ col }) => {
 
   const addPost = (e) => {
     e.preventDefault();
-    setStatus("");
     if (newTitle && newContent) {
       add(collectionRef, newPost)
         .then((res) => {
@@ -40,7 +40,7 @@ const AddPost = ({ col }) => {
   };
 
   return (
-    <form>
+    <form className="d-flex flex-column align-items-center">
       <PostTitleInput
         postTitle={newTitle}
         setPostTitle={setNewTitle}
@@ -51,17 +51,8 @@ const AddPost = ({ col }) => {
         setPostContent={setNewContent}
         col={col}
       />
-      <div>
-        {status && <Status status={status}></Status>}
-      </div>
-
-      <button
-        onClick={(e) => {
-          addPost(e);
-        }}
-      >
-        Post
-      </button>
+      <Status status={status}></Status>
+      <Button type="submit" value="post" className='btn btn-primary' onClick={(e) => addPost(e)} />
     </form>
   );
 };

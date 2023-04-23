@@ -6,6 +6,11 @@ input, textarea {
   display: block;
 }
 
+textarea{
+  height: 40vh;
+  resize: both;
+}
+
 b.status {
   height: 2rem;
 }
