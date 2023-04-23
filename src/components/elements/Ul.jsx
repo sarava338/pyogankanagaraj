@@ -6,8 +6,10 @@ const Ul = ({ list }) => {
     <ul className="navbar-nav flex-row align-items-center">
       {list.map((l) => {
         return (
-          <li className="nav-item px-2">
-            <Link className="nav-link" to={l}>{l}</Link>
+          <li className="nav-item px-2" key={l}>
+            <Link className="nav-link" to={l}>
+              {l}
+            </Link>
           </li>
         );
       })}
