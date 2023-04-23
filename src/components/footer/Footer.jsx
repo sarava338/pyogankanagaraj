@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="text-center">
       <hr />
       <div className="my-2">
-        <a target="_blank" href="https://sarava338-netlify.app">
+        <a target="_blank" href="https://sarava338.netlify.app">
           @sarava338
         </a>
       </div>
