@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AuthProvider from "./contexts/AuthContext";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="kathai" element={<Kathai />} />
               <Route path="kavithai" element={<Kavithai />} />
               <Route path="katturai" element={<Katturai />} />
+              <Route path='about' element={<About />} />
             </Routes>
             <Footer />
           </BrowserRouter>

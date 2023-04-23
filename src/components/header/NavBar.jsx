@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import Ul from "../elements/Ul";
 
 const NavBar = () => {
-  const list = ['login', 'profile'];
+  const list = ['about','login', 'profile'];
 
   return (
     <nav className="navbar mx-4">
