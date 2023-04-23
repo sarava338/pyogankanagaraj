@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Ul = ({ list }) => {
+const Ul = ({ list, direction }) => {
   return (
-    <ul className="navbar-nav flex-row align-items-center">
-      {list.map((l) => {
+    <ul className={`navbar-nav flex-${direction} align-items-center`}>
+      {list.map((item) => {
         return (
-          <li className="nav-item px-2" key={l}>
-            <Link className="nav-link" to={l}>
-              {l}
+          <li className="nav-item px-2" key={item}>
+            <Link className="nav-link" to={item}>
+              {item}
             </Link>
           </li>
         );

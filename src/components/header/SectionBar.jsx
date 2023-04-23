@@ -7,7 +7,7 @@ const SectionBar = () => {
 
   return (
     <nav className="navbar justify-content-center py-0">
-      <Ul list={list} />
+      <Ul list={list} direction="row" />
       <Outlet />
     </nav>
   );

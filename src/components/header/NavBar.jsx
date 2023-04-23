@@ -10,7 +10,7 @@ const NavBar = () => {
       <Link className="navbar-brand" to="/">
         Yogan
       </Link>
-      <Ul list={list} />
+      <Ul list={list} direction="row" />
       <Outlet />
     </nav>
   );
