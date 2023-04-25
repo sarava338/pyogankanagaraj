@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { remove, update } from "../../firebase/db";
 import Button from "../elements/Button";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Post = ({ post }) => {
   const { id, title, content, collection } = post;
@@ -8,6 +9,8 @@ const Post = ({ post }) => {
   const [editedTitle, setEditedTitle] = useState(title);
   const [editedContent, setEditedContent] = useState(content);
   const [deletable, setDeletable] = useState(true);
+
+  const { isAdmin } = useAuth();
 
   const editPost = () => {
     let newPost = {
@@ -57,19 +60,21 @@ const Post = ({ post }) => {
           ></textarea>
         )}
       </div>
-      <div>
-        <Button
-          className="btn btn-primary"
-          type="submit"
-          value="edit"
-          onClick={editPost}
-        />
-        <Button
-          onClick={removePost}
-          className={`btn ${deletable ? "btn-danger" : "btn-success"}`}
-          value={deletable ? "delete" : "cancel deleting"}
-        />
-      </div>
+      {isAdmin && (
+        <div>
+          <Button
+            className="btn btn-primary"
+            type="submit"
+            value="edit"
+            onClick={editPost}
+          />
+          <Button
+            onClick={removePost}
+            className={`btn ${deletable ? "btn-danger" : "btn-success"}`}
+            value={deletable ? "delete" : "cancel deleting"}
+          />
+        </div>
+      )}
     </section>
   );
 };

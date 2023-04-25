@@ -12,18 +12,7 @@ const AddPost = ({ col }) => {
   const [newTitle, setNewTitle] = useState("");
   const [newContent, setNewContent] = useState("");
   const [status, setStatus] = useState({});
-  const [isAdmin, setIsAdmin] = useState(false);
-  const { currentUser } = useAuth();
-
-  useEffect(() => {
-    userIsAdmin(currentUser);
-  }, [currentUser]);
-
-  const userIsAdmin = (user) => {
-    import.meta.env.VITE_ADMIN_UID.split(",").forEach((uid) => {
-      if (uid === user?.uid) setIsAdmin(true);
-    });
-  };
+  const { isAdmin } = useAuth()
 
   const collectionRef = collection(db, col);
   const newPost = { title: newTitle, content: newContent, collection: col };

@@ -3,6 +3,7 @@ import Post from "./Post";
 import { collection } from "firebase/firestore";
 import { get } from "../../firebase/db";
 import { db } from "../../firebase/fireebase";
+import AuthProvider from "../../contexts/AuthContext";
 
 const AllPosts = ({ col }) => {
   const [posts, setPosts] = useState([]);
@@ -22,9 +23,11 @@ const AllPosts = ({ col }) => {
   }, []);
 
   return (
-    <section className="container">
-      {posts && posts?.map((post) => <Post key={post.id} post={post} />)}
-    </section>
+    <AuthProvider>
+      <section className="container">
+        {posts && posts?.map((post) => <Post key={post.id} post={post} />)}
+      </section>
+    </AuthProvider>
   );
 };
 

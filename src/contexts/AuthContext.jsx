@@ -6,18 +6,26 @@ const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
+
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
     });
+
+    import.meta.env.VITE_ADMIN_UID.split(",").forEach((uid) => {
+      if (uid === currentUser?.uid) setIsAdmin(true);
+    });
+
     return unsubscribe;
-  }, []);
+  }, [currentUser]);
 
   const value = {
     currentUser,
+    isAdmin,
     setCurrentUser,
     signup,
     login,
