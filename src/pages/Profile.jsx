@@ -1,9 +1,11 @@
 import React from "react";
 import { logout } from "../firebase/auth";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { currentUser, setCurrentUser } = useAuth();
+  const navigate = useNavigate();
 
   console.log(currentUser);
 
@@ -11,7 +13,8 @@ const Profile = () => {
     logout()
       .then((res) => {
         console.log(res);
-        setCurrentUser();
+        setCurrentUser({});
+        navigate("/login");
       })
       .catch((err) => console.log(err));
   };
