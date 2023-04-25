@@ -10,24 +10,26 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AuthProvider from "./contexts/AuthContext";
 import About from "./pages/About";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
     <>
       <AuthProvider>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="login" element={<Login />} />
-              <Route path="signup" element={<Signup />} />
-              <Route path="kathai" element={<Kathai />} />
-              <Route path="kavithai" element={<Kavithai />} />
-              <Route path="katturai" element={<Katturai />} />
-              <Route path='about' element={<About />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="kathai" element={<Kathai />} />
+            <Route path="kavithai" element={<Kavithai />} />
+            <Route path="katturai" element={<Katturai />} />
+            <Route path="about" element={<About />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       </AuthProvider>
     </>
   );
