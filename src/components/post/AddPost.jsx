@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { collection } from "firebase/firestore";
 import { db } from "../../firebase/fireebase";
 import { add } from "../../firebase/db";
-import PostTitleInput from "../elements/PostTitleInput";
-import PostContentInput from "../elements/PostContentInput";
+import PostTitleInput from "./PostTitleInput";
+import PostContentInput from "./PostContentInput";
 import Status from "../elements/Status";
 import Button from "../elements/Button";
 

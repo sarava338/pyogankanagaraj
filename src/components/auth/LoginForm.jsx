@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../firebase/auth";
 import Status from "../elements/Status";
-import EmailInput from "../elements/EmailInput";
-import PasswordInput from "../elements/PasswordInput";
+import EmailInput from "./EmailInput";
+import PasswordInput from "./PasswordInput";
 import Button from "../elements/Button";
 
 const LoginForm = () => {

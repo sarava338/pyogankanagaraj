@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Status from "../elements/Status";
 import { signup } from "../../firebase/auth";
-import EmailInput from "../elements/EmailInput";
-import PasswordInput from "../elements/PasswordInput";
+import EmailInput from "./EmailInput";
+import PasswordInput from "./PasswordInput";
 import Button from "../elements/Button";
 import { Link } from "react-router-dom";
 
