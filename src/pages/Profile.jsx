@@ -7,12 +7,11 @@ const Profile = () => {
   const { currentUser, setCurrentUser } = useAuth();
   const navigate = useNavigate();
 
-  console.log(currentUser);
+  console.log(currentUser?.email);
 
   const handleLogout = () => {
     logout()
       .then((res) => {
-        console.log(res);
         setCurrentUser({});
         navigate("/login");
       })
